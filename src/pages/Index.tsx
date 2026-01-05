@@ -61,8 +61,10 @@ const Index = () => {
 
       {/* Cat image fixed behind content */}
       <div
-        className="fixed -translate-x-[5vw]
- inset-0 flex items-center justify-center pointer-events-none z-0"
+        className={`fixed 
+ inset-0 flex items-center justify-center pointer-events-none z-0 ${
+   !isMobile ? "-translate-x-[5vw]" : ""
+ }`}
       >
         <img
           src={backgroundImage}
