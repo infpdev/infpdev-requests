@@ -1,6 +1,7 @@
 import { Github, ExternalLink, Copy, Check, Youtube } from "lucide-react";
 import { useState, useMemo, useEffect } from "react";
 import { projects } from "../assets/projects";
+import { AmbientAudioToggle } from "@/components/AmbientAudioToggle";
 
 // Import all background images - add more with bg-X.png naming
 import bg1 from "@/assets/1.png";
@@ -56,6 +57,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col p-6 md:p-8 relative select-none">
+      <AmbientAudioToggle />
+
       {/* Cat image fixed behind content */}
       <div
         className="fixed -translate-x-[5vw]
@@ -84,8 +87,8 @@ const Index = () => {
                   silly things.
                   <br />
                   it's usually just for fun, but sometimes it helps someone.
-                  <br></br>i learn a lot doing it, and sometimes end up meeting people i
-                  vibe with.
+                  <br></br>i learn a lot doing it, and sometimes end up meeting
+                  people i vibe with.
                   <br /> p.s. i post random stuff on youtube sometimes :{">"}
                   <br></br>p.s. also, yes — cats. love 'em.
                 </p>
@@ -207,7 +210,7 @@ const Index = () => {
                     href="https://github.com/infpdev/bingeboo"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-auto text-xs text-primary/80 transition-colors duration-200 hover:text-primary select-auto"
+                    className="mt-auto text-xs text-primary/80 transition-colors duration-200 hover:text-primary w-fit select-auto"
                   >
                     view on github →
                   </a>
@@ -263,7 +266,7 @@ const Index = () => {
                     href={randomProject.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-auto text-xs text-primary/80 transition-colors duration-200 hover:text-primary select-auto"
+                    className="mt-auto text-xs text-primary/80 transition-colors w-fit duration-200 hover:text-primary select-auto"
                   >
                     view on github →
                   </a>
@@ -311,7 +314,13 @@ const Index = () => {
               <div className=" flex items-center gap-1 text-sm">
                 {/* Placeholder pfp next to Discord */}
 
-                <div className="transition-all w-5 h-5 hover:w-14 hover:h-14 rounded-full bg-muted/50 border border-border/50 flex items-center justify-center overflow-hidden">
+                <div
+                  className={`transition-all  rounded-full bg-muted/50 border border-border/50 flex items-center justify-center overflow-hidden ${
+                    isMobile
+                      ? "w-[11vw] h-[11vw]"
+                      : "w-5 h-5 hover:w-14 hover:h-14"
+                  }`}
+                >
                   <img
                     src={pfp}
                     alt="pfp"
