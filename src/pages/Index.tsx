@@ -57,7 +57,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col p-6 md:p-8 relative select-none">
-      <AmbientAudioToggle />
+      <AmbientAudioToggle isMobile={isMobile} />
 
       {/* Cat image fixed behind content */}
       <div
