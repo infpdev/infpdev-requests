@@ -14,8 +14,8 @@ import bg7 from "@/assets/7.png";
 import bg8 from "@/assets/8.png";
 import bg9 from "@/assets/9.png";
 import bg10 from "@/assets/10.png";
-const pfp =
-  "https://avatar-cyan.vercel.app/api/pfp/495820009629810698/smallimage";
+// const pfp = "https://avatar-cyan.vercel.app/api/pfp/495820009629810698/smallimage";
+import pfp from "../../public/favicon.png"
 // Array of all background images - add new imports here
 const backgroundImages = [bg1, bg2, bg3, bg4, bg5, bg6, bg7, bg8, bg9, bg10];
 
