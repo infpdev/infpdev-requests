@@ -2,7 +2,7 @@ import { Github, ExternalLink, Copy, Check, Youtube } from "lucide-react";
 import { useState, useMemo, useEffect } from "react";
 import { projects } from "../assets/projects";
 import { AmbientAudioToggle } from "@/components/AmbientAudioToggle";
-
+import { Ded } from "@/components/Ded";
 // Import all background images - add more with bg-X.png naming
 import bg1 from "@/assets/1.png";
 import bg2 from "@/assets/2.png";
@@ -15,7 +15,7 @@ import bg8 from "@/assets/8.png";
 import bg9 from "@/assets/9.png";
 import bg10 from "@/assets/10.png";
 // const pfp = "https://avatar-cyan.vercel.app/api/pfp/495820009629810698/smallimage";
-import pfp from "../../public/favicon.png"
+import pfp from "../../public/favicon.png";
 // Array of all background images - add new imports here
 const backgroundImages = [bg1, bg2, bg3, bg4, bg5, bg6, bg7, bg8, bg9, bg10];
 
@@ -24,6 +24,7 @@ const getRandomBackground = () => {
   const index = Math.floor(Math.random() * backgroundImages.length);
   return backgroundImages[index];
 };
+const isDevDead = true;
 
 const Index = () => {
   const [copied, setCopied] = useState(false);
@@ -45,7 +46,7 @@ const Index = () => {
     const checkMobile = () => {
       setIsMobile(
         window.matchMedia("(pointer: coarse)").matches ||
-          window.matchMedia("(max-width: 960px)").matches
+          window.matchMedia("(max-width: 960px)").matches,
       );
     };
 
@@ -57,8 +58,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col p-6 md:p-8 relative select-none">
-      <AmbientAudioToggle isMobile={isMobile} />
+      {isDevDead && <Ded />}
 
+      <AmbientAudioToggle isMobile={isMobile} />
       {/* Cat image fixed behind content */}
       <div
         className={`fixed 
@@ -72,7 +74,6 @@ const Index = () => {
           className="h-[50vh] w-auto object-contain opacity-30"
         />
       </div>
-
       <div className="flex-1 flex flex-col items-center justify-center relative z-10">
         <div className="w-full max-w-[85rem]">
           {/* Main content grid - responsive, both columns in same container */}
